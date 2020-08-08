@@ -33,10 +33,7 @@ public class StudentController {
         return new Student();
     }
 
-    @GetMapping("/student/{lastName}")
-    public Student getStudentByLastName() {
-        return new Student();
-    }
+
 
 
 
