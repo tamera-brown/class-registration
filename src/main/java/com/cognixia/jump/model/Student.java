@@ -11,7 +11,7 @@ public class Student implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer studentId;
+    private Long studentId;
 
     @NotBlank
     private String firstName;
@@ -27,10 +27,10 @@ public class Student implements Serializable {
     private String password;
 
     public Student() {
-        this(-1, "N/A", "N/A", "N/A", "N/A");
+        this((long) -1, "N/A", "N/A", "N/A", "N/A");
     }
 
-    public Student(Integer studentId, @NotBlank String firstName, @NotBlank String lastName, String email, @NotBlank @Pattern(regexp = "(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{8,}$") String password) {
+    public Student(Long studentId, @NotBlank String firstName, @NotBlank String lastName, String email, @NotBlank @Pattern(regexp = "(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{8,}$") String password) {
         this.studentId = studentId;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -42,11 +42,11 @@ public class Student implements Serializable {
         return serialVersionUID;
     }
 
-    public Integer getStudentId() {
+    public Long getStudentId() {
         return studentId;
     }
 
-    public void setStudentId(Integer studentId) {
+    public void setStudentId(Long studentId) {
         this.studentId = studentId;
     }
 
