@@ -1,0 +1,31 @@
+.homeBody {
+    margin: 0;
+    background-image: url("./images/space.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.footerText2 {
+    font-style: italic;
+    color: gold;
+    font-family: "Arial Black", Gadget, sans-serif;
+    margin-right: 5px;
+}
+
+footer {
+	position: fixed;
+	left: 0;
+	bottom: 0;
+    width: 100%;
+    font-style: italic;
+    text-align: center;
+}
+
+.nav {
+    background-image: linear-gradient(black, purple);
+}
+
+nav .navbar-nav li a{
+    color: gold !important;
+    font-family: "Arial Black", Gadget, sans-serif !important;
+}
