@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 import java.util.Optional;
 
@@ -31,6 +32,16 @@ public class StudentController {
         return new Student();
     }
 
+    @PostMapping("/add/student")
+    public ResponseEntity<String> addStudent(@Valid @RequestBody Student student) {
+        if(service.existsById(student.getStudentId())) {
+            return ResponseEntity.status(400).body("Student with id = " + student.getStudentId() + " already exists");
+        } else {
+            Student created = service.save(student);
+            return ResponseEntity.status(201).body("Created: + " + created);
+        }
+    }
+
     @PutMapping("/update/student")
     public @ResponseBody String updateStudent(@RequestBody Student updateStudent) {
         Optional<Student> found = service.findById(updateStudent.getStudentId());
@@ -53,6 +64,7 @@ public class StudentController {
         } else {
             return ResponseEntity.status(400).body("Student with id= " + id + " not found");
         }
+
     }
 
 

@@ -13,17 +13,22 @@ public class Student implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long studentId;
 
-    @NotBlank
+    @NotBlank(message = "First name cannot be empty or null")
     private String firstName;
 
-    @NotBlank
+    @NotBlank(message = "Last name cannot be empty or null")
     private String lastName;
 
+    //TODO regex for email
+    //does not allow numbers in the domain
+    //
     @Column(nullable = false)
+    @Pattern(regexp = "^\\w+@[a-zA-Z_]+?\\.[a-zA-Z]{2,3}$")
     private String email;
 
+    //Minimum eight characters, at least one letter and one number
     @NotBlank
-    @Pattern(regexp = "(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{8,}$")
+    @Pattern(regexp = "^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{8,}$")
     private String password;
 
     public Student() {
