@@ -29,6 +29,10 @@ nav .navbar-nav li a{
     color: gold !important;
     font-family: "Arial Black", Gadget, sans-serif !important;
 }
+
+.schoolHead {
+  color: gold;
+}
   
   body {
     font-family: "Arial Black", Gadget, sans-serif;
