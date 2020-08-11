@@ -14,7 +14,7 @@
         <link rel="icon" type="image/gif" href="./images/star.png">
         <title>Cognixia Jump University</title>
     </head>
-    <nav class="navbar navbar-expand-md nav navbar-dark fixed-top">
+    <nav class="navbar navbar-expand-md nav navbar-dark">
         
         <a class="navbar-brand" href="student.html"><img src="./images/star.png" style="width:35px;height:35px;"></a>
       
@@ -28,9 +28,6 @@
               <a class="nav-link" href="student.html">Profile</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="course.html">Courses</a>
-            </li>
-            <li class="nav-item">
               <a class="nav-link" href="registration.html">Register</a>
             </li>
           </ul>
@@ -39,7 +36,22 @@
         <h3 class="schoolHead">Cognixia Jump University</h3>
     </nav>
     <body class="homeBody">
-
+      <br><br>
+      <div class="container">
+        <h2 class="schoolHead">Striped Rows</h2>           
+        <table class="table table-striped">
+          <thead class="headers">
+            <tr>
+              <th>Course ID</th>
+              <th>Course Title</th>
+              <th>Credit Hours</th>
+              <th>Department</th>
+              <th>Enrollment Status</th>
+            </tr>
+          </thead>
+          <tbody class="tableBody" id="regTable"></tbody>
+        </table>
+      </div>
     </body>
     <footer>
         <p class="footerText2">Copyright © 2020 Cognixia Jump University. All Rights Reserved</p>
