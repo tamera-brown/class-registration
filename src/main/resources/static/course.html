@@ -7,14 +7,14 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-        <script src="registration.js"></script>
+        <script src=""></script>
         
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
         <link rel="stylesheet" href="styles.css">
         <link rel="icon" type="image/gif" href="./images/star.png">
         <title>Cognixia Jump University</title>
     </head>
-    <nav class="navbar navbar-expand-md nav navbar-dark">
+    <nav class="navbar navbar-expand-md nav navbar-dark fixed-top">
         
         <a class="navbar-brand" href="student.html"><img src="./images/star.png" style="width:35px;height:35px;"></a>
       
@@ -28,31 +28,18 @@
               <a class="nav-link" href="student.html">Profile</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="registration.html">Register</a>
+              <a class="nav-link" href="course.html">Courses</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="registration.html">Register</a>
+            </li> 
           </ul>
         </div> 
 
         <h3 class="schoolHead">Cognixia Jump University</h3>
     </nav>
-    <body class="homeBody" onload="initialize()">
-      <br><br>
-      <div class="container">
-        <h2 class="schoolHead">Courses</h2>           
-        <table class="table table-striped">
-          <thead class="headers">
-            <tr>
-              <th>Course ID</th>
-              <th>Course Title</th>
-              <th>Credit Hours</th>
-              <th>Department</th>
-              <th>Enrollment Status</th>
-              <th>Action</th>
-            </tr>
-          </thead>
-          <tbody class="tableBody" id="regTable"></tbody>
-        </table>
-      </div>
+    <body class="homeBody">
+      <div class="text-center" id="courses"></div>
     </body>
     <footer>
         <p class="footerText2">Copyright © 2020 Cognixia Jump University. All Rights Reserved</p>
