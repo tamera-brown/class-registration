@@ -26,8 +26,8 @@ function getStudents(data){
     var emailFromLoginPage = document.getElementById("login").value;
     var purpose = StudentProfile
 
-    for(index = 0; index < students.length; index++) {
-        if(students[index].email === emailFromLoginPage) {
+    for(let index = 0; index < students.length; index++) {
+        if(students[index].email == emailFromLoginPage) {
             var tableHtml = ''
                 + '<td>' + students[index].studentId + '</td>'
                 + '<td>' + json[index].firstName + '</td>'
@@ -99,11 +99,73 @@ function renderCourses(purpose, id) {
     var regList = JSON.parse(pregList);
     var courses = JSON.parse(pcourses);
     var studentCourses = [];
-    // find all the courses id from the registration list by matching the student id
-    for(index = 0; index < regList.length; index++) {
-        if(regList[index].studentId === id) {
 
+    // find all the courses id from the registration list by matching the student id
+    for( let index = 0; index < regList.length; index++) {
+        if(regList[index].studentId == id) {
+            studentCourses.push(regList[index].course_id);
         }
     }
 
+    for(let index = 0; index < studentCourses.length; index++) {
+        for(let index2 = 0; index2 < courses.length; index2++) {
+            if(studentCourses[index] == courses[index2].course_id) {
+                studentCourses[index] = courses[index2];
+            }
+        }
+    }
+
+    var modalTable = ' <div class="modal fade" id="' + modalPurpose + id + '"> '
+        + ' <div class="modal-dialog modal-xl"> '
+        + ' <div class="modal-content"> '
+
+        + '<div class="modal-header">'
+        + '<h4 class="modal-title"></h4>'
+        + '<button type="button" class="close" data-dismiss="modal">&times;</button>'
+        + '</div>'
+        + '<div class="modal-body">'
+
+        + '<div class="container">'
+        + '<h2> Stats </h2>'
+        + '<table class="table table-dark">'
+        + '<thead>'
+        + '<tr>'
+        + '<th>Courses Id</th>'
+        + '<th>Courses Title</th>'
+        + '<th>Credit Hours</th>'
+        + '<th>Department</th>'
+        + '</tr>'
+        + '</thead>'
+        + '<tbody>'
+        + '<tr>'
+        + tableEntries(studentCourses)
+        + '</tr>'
+        + '</tbody>'
+        + '</table>'
+        + '</div>'
+        + '</div>'
+
+        + '<div class="modal-footer">'
+        + '<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>'
+        + '</div>'
+
+        + '</div>'
+        + '</div>'
+        + '</div>'
+        + '</div>';
+
+
+
+
+}
+
+function tableEntries(courses) {
+    var entries;
+    for(let index = 0; index < courses.length; index++) {
+        entries += '<td>' + courses[index].course_id + '</td>'
+                 + '<td>' + courses[index].course_Name + '</td>'
+                 + '<td>' + courses[index].credit + '</td>'
+                 + '<td>' + courses[index].department + '</td>';
+    }
+    return entries;
 }
