@@ -25,7 +25,7 @@ import com.cognixia.jump.repository.CourseRepository;
 
 
 
-@RequestMapping("/api")
+@RequestMapping("/courseApi")
 @RestController
 public class CourseController {
 	

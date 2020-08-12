@@ -33,19 +33,6 @@ nav .navbar-nav li a{
 .schoolHead {
   color: gold;
 }
-
-.headers {
-  color: gold;
-  font-family: "Arial Black", Gadget, sans-serif;
-  text-align: center;
-  background-image: linear-gradient(black, purple);
-}
-
-.tableBody {
-  color: gold;
-  background-color: rgba(70, 39, 89, 0.5);
-  text-align: center;
-}
   
   body {
     font-family: "Arial Black", Gadget, sans-serif;
@@ -256,4 +243,16 @@ nav .navbar-nav li a{
   
   #icon {
     width:60%;
+  }
+  table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    background-color: white;
+  }
+  
+  td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
   }

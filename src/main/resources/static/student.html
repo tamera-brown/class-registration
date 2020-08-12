@@ -7,10 +7,13 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-        <script src=""></script>
+        <script src="login.js"></script>
+    
         
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
         <link rel="stylesheet" href="styles.css">
+        <link rel="import" href="login.html"/>
+        
         <link rel="icon" type="image/gif" href="./images/star.png">
         <title>Cognixia Jump University</title>
     </head>
@@ -27,6 +30,7 @@
             <li class="nav-item">
               <a class="nav-link" href="student.html">Profile</a>
             </li>
+            </li>
             <li class="nav-item">
               <a class="nav-link" href="registration.html">Register</a>
             </li>
@@ -35,23 +39,28 @@
 
         <h3 class="schoolHead">Cognixia Jump University</h3>
     </nav>
-    <body class="homeBody">
-      <h1 class="schoolHead" id="profileTitle"></h1>
-      <br><br>
+    <body class="homeBody" onload="initialize()">
+      
+      <h1 class="schoolHead" id="profileTitle">Welcome Back,</h1>
+
+        <br><br>
+
       <div class="container">
-        <h2 class="schoolHead">Striped Rows</h2>           
-        <table class="table table-striped">
-          <thead class="headers">
-            <tr>
-              <th>Course ID</th>
-              <th>Course Title</th>
-              <th>Credit Hours</th>
-              <th>Department</th>
-            </tr>
-          </thead>
-          <tbody class="tableBody" id="studentTable"></tbody>
-        </table>
-      </div>
+          <h2 class="schoolHead">Courses</h2>
+          <table class="table table-striped">
+              <thead class="headers">
+              <tr>
+                  <th>Student ID</th>
+                  <th>First Name</th>
+                  <th>Last Name</th>
+                  <th>Email</th>
+                  <th>Courses Registered</th>
+              </tr>
+              </thead>
+              <tbody class="tableBody" id="regTable"></tbody>
+          </table>
+    
+
     </body>
     <footer>
         <p class="footerText2">Copyright © 2020 Cognixia Jump University. All Rights Reserved</p>

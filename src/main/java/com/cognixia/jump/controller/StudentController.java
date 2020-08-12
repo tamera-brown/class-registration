@@ -1,7 +1,7 @@
 package com.cognixia.jump.controller;
 
 import com.cognixia.jump.model.Student;
-import com.cognixia.jump.repo.StudentRepo;
+import com.cognixia.jump.repository.StudentRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

@@ -41,7 +41,7 @@ function getOneStudent(id) {
     };
     xhttpList.open("GET", url, false);
     xhttpList.send();
-    console.log("Single sneaker retrieved");
+    console.log("Single student retrieved");
 
     return sessionStorage.getItem("student");
 }
@@ -53,14 +53,19 @@ function isValidStudent(data){
     // We can the iterate over all of our students
 
     var valid;
+    
     var email=document.getElementById("login").value;
     var pwd=document.getElementById("password").value;
    
+    console.log(email);
+    console.log(pwd);
+
     for (var index = 0; index < json.length; index++) {
       
         if((json[index].email==email) && (json[index].password==pwd)){
 
              valid=true;
+            
         }
         else{
             valid=false;
@@ -69,7 +74,10 @@ function isValidStudent(data){
     if(valid==true){
         alert("Login successful");
         window.location.href = "./student.html";
-
+        var studentName='<h1 class="schoolHead" id="profileTitle">Welcome Back,'+ json[index].firstName+' ' + json[index].lastName+'</h1>'
+        JSON.stringify(studentName);
+        document.getElementById("profileTitle").insertAdjacentHTML("beforeend", studentName);
+      
     }
     else{
         alert("Login Failed");

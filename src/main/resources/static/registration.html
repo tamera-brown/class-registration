@@ -7,14 +7,14 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-        <script src=""></script>
+        <script src="registration.js"></script>
         
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
         <link rel="stylesheet" href="styles.css">
         <link rel="icon" type="image/gif" href="./images/star.png">
         <title>Cognixia Jump University</title>
     </head>
-    <nav class="navbar navbar-expand-md nav navbar-dark">
+    <nav class="navbar navbar-expand-md nav navbar-dark fixed-top">
         
         <a class="navbar-brand" href="student.html"><img src="./images/star.png" style="width:35px;height:35px;"></a>
       
@@ -27,6 +27,7 @@
             <li class="nav-item">
               <a class="nav-link" href="student.html">Profile</a>
             </li>
+           
             <li class="nav-item">
               <a class="nav-link" href="registration.html">Register</a>
             </li>
@@ -35,10 +36,10 @@
 
         <h3 class="schoolHead">Cognixia Jump University</h3>
     </nav>
-    <body class="homeBody">
+    <body class="homeBody" onload="initialize()">
       <br><br>
       <div class="container">
-        <h2 class="schoolHead">Striped Rows</h2>           
+        <h2 class="schoolHead">Courses</h2>           
         <table class="table table-striped">
           <thead class="headers">
             <tr>
@@ -51,7 +52,7 @@
           </thead>
           <tbody class="tableBody" id="regTable"></tbody>
         </table>
-      </div>
+  
     </body>
     <footer>
         <p class="footerText2">Copyright © 2020 Cognixia Jump University. All Rights Reserved</p>

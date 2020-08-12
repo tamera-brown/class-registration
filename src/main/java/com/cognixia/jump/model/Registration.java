@@ -12,9 +12,7 @@ import javax.validation.constraints.NotNull;
 @Entity
 public class Registration implements Serializable {
 	
-	/**
-	 * 
-	 */
+	
 	private static final long serialVersionUID = 8756706368884157278L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -27,7 +25,7 @@ public class Registration implements Serializable {
 	private boolean isDropped;
 	
 	public Registration() {
-		this(-1L,new Courses(-1L), new Student(-1L), false);
+		this(-1L,new Courses(-1L), new Student(-1L,"N/A", "N/A", "N/A", "N/A"), false);
 	}
 	
 	public Registration(Long registration_id, @NotBlank Courses course_id, @NotBlank Student studentId,
