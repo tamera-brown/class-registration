@@ -54,7 +54,7 @@ function renderCourses(data) {
         + '<td>' + json[i].course_Name + '</td>'
         + '<td>' + json[i].credit +'</td>'
         + '<td>' + json[i].department + '</td>'
-        + '<td> <input type="checkbox" id="EnrollStatus" name="EnrollStatus" value=""</td>'
+        + '<td> <input type="checkbox" id="EnrollStatus" name="EnrollStatus" value="Enroll"> Enroll'  + "" +  ' <input type="checkbox" id="EnrollStatus" name="EnrollStatus" value="Drop"> Drop </td>'
         + '<td><br>'
         + '<button type="button" class="btn btn-success">Sumbit</button>'
         + '</div>'
