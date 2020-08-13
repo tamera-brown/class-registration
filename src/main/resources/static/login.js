@@ -72,6 +72,8 @@ function isValidStudent(data){
         }
 }
     if(valid==true){
+
+        sessionStorage.setItem('studentEmail', document.getElementById("login").value);
         alert("Login successful");
         window.location.href = "./student.html";
         var studentName='<h1 class="schoolHead" id="profileTitle">Welcome Back,'+ json[index].firstName+' ' + json[index].lastName+'</h1>'
