@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.cognixia.jump</groupId>
-	<artifactId>class-reg</artifactId>
+	<artifactId>class-registration</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>ClassRegistration</name>
-	<description>Team Project</description>
+	<description>Demo project for Spring Boot</description>
 
 	<properties>
 		<java.version>1.8</java.version>

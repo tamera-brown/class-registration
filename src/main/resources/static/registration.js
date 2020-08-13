@@ -54,9 +54,8 @@ function renderCourses(data) {
         + '<td>' + json[i].course_Name + '</td>'
         + '<td>' + json[i].credit +'</td>'
         + '<td>' + json[i].department + '</td>'
-        + '<td> <input type="checkbox" id="EnrollStatus" name="EnrollStatus" value=""</td>'
-        + '<td>'
-        + '<button type="button" class="btn btn-success">Submit</button>'
+        + '<td><br>'
+        + '<button type="button" class="btn btn-success" id="Enroll" onclick="EnrolltoCourse()">Enroll</button>'
         + '</td>'
         + '</tr>';
 
@@ -64,6 +63,21 @@ function renderCourses(data) {
         
       
     }
+    
 }
-  
+  function EnrolltoCourse(){
+
+   
+    var ok=confirm("Are you sure that you want to enroll in this course? \nPress ok to continue or cancel to abort");
+      if(ok==true){
+          alert("Successfully Enrolled!");
+          initialize1();
+
+          document.getElementById("Enroll").setAttribute("disabled",true);
+          
+       }
+
+      
+     
+  }
   
