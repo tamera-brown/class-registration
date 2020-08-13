@@ -54,7 +54,7 @@ function renderCourses(data) {
         + '<td>' + json[i].course_Name + '</td>'
         + '<td>' + json[i].credit +'</td>'
         + '<td>' + json[i].department + '</td>'
-        + '<td><br>'
+        + '<td>'
         + '<button type="button" class="btn btn-success" id="Enroll" onclick="EnrolltoCourse()">Enroll</button>'
         + '</td>'
         + '</tr>';

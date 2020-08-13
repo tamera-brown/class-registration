@@ -30,17 +30,20 @@
             <li class="nav-item">
               <a class="nav-link" href="registration.html">Register</a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link" href="index.html" onclick="">Logout</a>
+            </li>
           </ul>
         </div> 
 
         <h3 class="schoolHead">Cognixia Jump University</h3>
     </nav>
     <body class="homeBody" onload="initialize()">
-      <h1 class="schoolHead" id="profileTitle"></h1>
+      <h1 class="schoolHead">Welcome Back!</h1>
       <br><br>
       <div class="container">
-        <h2 class="schoolHead">Enrolled Courses</h2>           
-        <table class="table table-striped">
+        <h2 class="schoolHead fadeIn first">Enrolled Courses</h2>           
+        <table class="table table-striped fadeIn second">
           <thead class="headers">
             <tr>
               <th>Course ID</th>
@@ -50,7 +53,7 @@
               <th>Action</th>
             </tr>
           </thead>
-          <tbody class="tableBody" id="studentTable"></tbody>
+          <tbody class="tableBody fadeIn third" id="studentTable"></tbody>
         </table>
       </div>
     </body>
