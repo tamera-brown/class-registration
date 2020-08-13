@@ -55,9 +55,8 @@ function renderCourses(data) {
         + '<td>' + json[i].credit +'</td>'
         + '<td>' + json[i].department + '</td>'
         + '<td> <input type="checkbox" id="EnrollStatus" name="EnrollStatus" value=""</td>'
-        + '<td><br>'
-        + '<button type="button" class="btn btn-success">Sumbit</button>'
-        + '</div>'
+        + '<td>'
+        + '<button type="button" class="btn btn-success">Submit</button>'
         + '</td>'
         + '</tr>';
 
