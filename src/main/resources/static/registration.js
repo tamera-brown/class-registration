@@ -79,7 +79,7 @@ function renderCourses(data) {
          document.getElementById("Enroll").setAttribute("disabled",true);
 
          var xhttp = new XMLHttpRequest();
-         xhttp.open("POST", "/add/registration/", true);
+         xhttp.open("POST", "regApi/add/registration/", true);
          xhttp.setRequestHeader('Content-Type', 'application/json');
          xhttp.onreadystatechange = function () {
              if (this.readyState == 4 && this.status == 200) {
@@ -125,17 +125,7 @@ function renderCourses(data) {
     }
     
 }
-  function EnrolltoCourse(){
-
-   
-    var ok=confirm("Are you sure that you want to enroll in this course? \nPress ok to continue or cancel to abort");
-      if(ok==true){
-          alert("Successfully Enrolled!");
-          initialize1();
-
-          document.getElementById("Enroll").setAttribute("disabled",true);
-          
-       }
+  }
 
       
      
