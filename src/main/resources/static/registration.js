@@ -125,9 +125,4 @@ function renderCourses(data) {
     }
     
 }
-  }
-
-      
-     
-  }
   
