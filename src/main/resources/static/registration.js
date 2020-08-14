@@ -95,10 +95,7 @@ function renderCourses(data) {
         
              
       }
-      else{
-          window.location.href="./registration.html";
-      }
-
+     
      
     
  }
