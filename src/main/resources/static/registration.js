@@ -107,7 +107,7 @@ function renderCourses(data) {
     for( let index = 0; index < json.length; index++) {
 
         let courseID=json[index].course_id;
-        let studentID=json[index].studentID;
+        let studentID=json[index].studentId;
         let Dropped=false;
 
         var sendData = {
