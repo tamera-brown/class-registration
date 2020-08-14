@@ -28,6 +28,7 @@ function getStudents(data){
 
     for(let index = 0; index < students.length; index++) {
         if(students[index].email == emailFromLoginPage) {
+             document.getElementById("profileTitle").textContent=`Welcome ${students[index].firstName} ${students[index].lastName}`;
             var tableHtml = ''
                 + '<td>' + students[index].studentId + '</td>'
                 + '<td>' + json[index].firstName + '</td>'
