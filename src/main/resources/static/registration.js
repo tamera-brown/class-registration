@@ -1,12 +1,13 @@
 function initialize() {
  
     getCourses("/courseApi/courses");
+   
  }
 
 
  function getCourses(url) {
 
-   //make initial api call to get Student list
+   //make initial api call to get Course list
    var xhttpList = new XMLHttpRequest();
 
    // Read JSON - and put in storage
@@ -24,6 +25,26 @@ function initialize() {
 
 
 }
+function getReg(url) {
+
+    //make initial api call to get Registration list
+    var xhttpList = new XMLHttpRequest();
+ 
+    // Read JSON - and put in storage
+    xhttpList.onreadystatechange = function () {
+ 
+        if (this.readyState == 4 && this.status == 200) {
+            createReg(this.responseText);
+            
+           
+        }
+    };
+    xhttpList.open("GET", url, true);
+    xhttpList.send();
+    console.log("Registration List stored");
+ 
+ 
+ }
 
  function getOneCourse(id) {
    var url = "/courseApi/courses/" + id;
@@ -51,20 +72,20 @@ function renderCourses(data) {
 
    for(var i = 0; i < courseList.length; i++){
 
-        var tableHtml = ''
-        + '<td>' + json[i].course_id + '</td>'
-        + '<td>' + json[i].course_Name + '</td>'
-        + '<td>' + json[i].credit +'</td>'
-        + '<td>' + json[i].department + '</td>'
-        + '<td><br>'
-        + '<button type="button" class="btn btn-success" id="Enroll" onclick="EnrolltoCourse()">Enroll</button>'
-        + '</td>'
-        + '</tr>';
+       var tableHtml = ''
+       + '<td>' + courseList[i].course_id + '</td>'
+       + '<td>' + courseList[i].course_Name + '</td>'
+       + '<td>' + courseList[i].credit +'</td>'
+       + '<td>' + courseList[i].department + '</td>'
+       + '<td> <button type="button" class="btn btn-success" id="Enroll" onclick="EnrolltoCourse()">Enroll</button>'
+       + '</td>'
+       + '</tr>';
 
-       document.getElementById("regTable").insertAdjacentHTML("beforeend", tableHtml);
-       
+       document.getElementById("regTable").insertAdjacentHTML("beforeend",tableHtml);      
      
-   }
+   } 
+   
+
    
 }
  function EnrolltoCourse(){
@@ -78,24 +99,13 @@ function renderCourses(data) {
 
          document.getElementById("Enroll").setAttribute("disabled",true);
 
-         var xhttp = new XMLHttpRequest();
-         xhttp.open("POST", "regApi/add/registration/", true);
-         xhttp.setRequestHeader('Content-Type', 'application/json');
-         xhttp.onreadystatechange = function () {
-             if (this.readyState == 4 && this.status == 200) {
-                 createReg(this.responseText);
-                  console.log("Registration added");
-     
-                
-                
-             }
-         };
-         //xhttp.send(null);
-     
+         getReg("/regApi/registration/");
+        
         
              
       }
-     
+    
+
      
     
  }
@@ -117,9 +127,24 @@ function renderCourses(data) {
             "student_id": studentID,
             
         }
-            
-        console.log(sendData);
+        
+        
     }
+    console.log(sendData);
+        
+        var xhttp = new XMLHttpRequest();
+        xhttp.open("POST", "/regApi/add/registration/", true);
+        xhttp.setRequestHeader('Content-Type', 'application/json');
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                coconsole.log("Registration created!");
+            }
+        };
+       
+        xhttp.send(sendData);
     
+       
+        
+    
+
 }
-  
