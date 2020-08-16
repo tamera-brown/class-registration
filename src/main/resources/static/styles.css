@@ -34,6 +34,11 @@ nav .navbar-nav li a{
   color: gold;
 }
 
+.aboutHead {
+  color: gold;
+  text-align: center;
+}
+
 .headers {
   color: gold;
   font-family: "Arial Black", Gadget, sans-serif;
@@ -114,7 +119,7 @@ nav .navbar-nav li a{
     transform: scale(0.95);
   }
   
-  input[type=text] {
+  input[type=email], input[type=password] {
     background-color: #f6f6f6;
     border: none;
     color: black;
@@ -135,12 +140,12 @@ nav .navbar-nav li a{
     border-radius: 5px 5px 5px 5px;
   }
   
-  input[type=text]:focus {
+  input[type=email]:focus, input[type=password]:focus {
     background-color: #fff;
     border-bottom: 2px solid purple;
   }
   
-  input[type=text]:placeholder {
+  input[type=email]:placeholder, input[type=password]:placeholder {
     color: black;
   }
   
@@ -224,6 +229,18 @@ nav .navbar-nav li a{
     -webkit-animation-delay: 1s;
     -moz-animation-delay: 1s;
     animation-delay: 1s;
+  }
+
+  .fadeIn.fifth {
+    -webkit-animation-delay: 1.2s;
+    -moz-animation-delay: 1.2s;
+    animation-delay: 1.2s;
+  }
+
+  .fadeIn.sixth {
+    -webkit-animation-delay: 1.4s;
+    -moz-animation-delay: 1.4s;
+    animation-delay: 1.4s;
   }
   
   /* Simple CSS3 Fade-in Animation */

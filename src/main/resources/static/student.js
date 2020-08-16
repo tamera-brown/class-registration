@@ -191,6 +191,12 @@ function deleteCourseFromRegistrationList(courseId, registrationId) {
     var ok = confirm("Are you sure you want to delete?\nPress 'OK' to confirm, or 'cancel' to cancel");
 
     if(ok == true) {
+        // registrationEntry = getOneRegistrationById(registrationId);
+        // pregistEntry = JSON.parse(registrationEntry);
+        // updateRegistrationByEntry(pregistEntry);
+
+
+
         var xhttp = new XMLHttpRequest();
         xhttp.open("DELETE", link, true);
 
@@ -207,6 +213,44 @@ function deleteCourseFromRegistrationList(courseId, registrationId) {
         xhttp.send(null);
     }
 
-
-
 }
+
+// function getOneRegistrationById(id) {
+//     var link = "/regApi/registration/" + id;
+//
+//     var xhttpList = new XMLHttpRequest();
+//
+//     xhttpList.onreadystatechange = function () {
+//         if(this.readyState == 4 && this.status == 200) {
+//             sessionStorage.setItem("registration", this.responseText);
+//         }
+//     };
+//
+//     xhttpList.open("GET", url, false);
+//     xhttpList.send();
+//     console.log("Single student retrieved");
+//
+//     return sessionStorage.getItem("registration");
+// }
+//
+// function updateRegistrationByEntry(entry) {
+//     var sendData = {
+//         "registration_id": entry.registration_id,
+//         "course_id": entry.course_id,
+//         "studentId": entry.studentId,
+//         "dropped": true
+//     }
+//
+//     console.log(sendData);
+//
+//     var xhttp = new XMLHttpRequest();
+//     xhttp.open("PUT", "/regApi/update/registration",true);
+//     xhttp.setRequestHeader('content-Type', 'application/json');
+//     xhttp.onreadystatechange = function () {
+//         if(this.readyState == 4 && this.status == 200) {
+//             console.log("Update success");
+//         }
+//     };
+//
+//     xhttp.send(JSON.stringify(sendData));
+// }

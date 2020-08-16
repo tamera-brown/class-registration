@@ -57,17 +57,19 @@ public class RegistrationController {
 	    
 	}	
 	
-	@PostMapping("/add/registration/")
-	public ResponseEntity<String> addNewRegistration(@Valid @RequestBody Registration newRegistration){ 
-		Optional<Registration> found=repository.findById(newRegistration.getRegistration_id());
-		if (!found.isPresent()) {
-			repository.save(newRegistration);
-			return ResponseEntity.status(200).body("The registration with id: " + newRegistration.getRegistration_id() + " has been added");
-		}
-		return ResponseEntity.status(404).body("This registration with id: " + newRegistration.getRegistration_id() + " is already exists");
+	@PostMapping("/add/registration")
+	public void addNewRegistration(@Valid @RequestBody Registration newRegistration){
+//		Optional<Registration> found=repository.findById(newRegistration.getRegistration_id());
+//		if (!found.isPresent()) {
+//			repository.save(newRegistration);
+//			return ResponseEntity.status(200).body("The registration with id: " + newRegistration.getRegistration_id() + " has been added");
+//		}
+//		return ResponseEntity.status(404).body("This registration with id: " + newRegistration.getRegistration_id() + " is already exists");
+		newRegistration.setRegistration_id(-1L);
+		repository.save(newRegistration);
 		
 	}
-	@PutMapping("/update/registration/")
+	@PutMapping("/update/registration")
 	public ResponseEntity<Registration> updateARegistration(@RequestBody Registration registration) throws ResourceNotFoundException{
 		Optional<Registration> found=repository.findById(registration.getRegistration_id());
 		if (!found.isPresent()) {
@@ -77,6 +79,8 @@ public class RegistrationController {
 		 return new ResponseEntity<Registration>(updateRegistration,HttpStatus.ACCEPTED);
 		
 	}
+
+
 
 }
 
