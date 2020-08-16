@@ -1,8 +1,23 @@
 function initialize() {
     // console.log("in initialzie")
     getStudents("/studentApi/allStudents");
-
 }
+
+function displayStudent(data) {
+
+    var students = JSON.parse(data);
+    var emailFromLoginPage = sessionStorage.getItem("studentEmail");
+
+    for(let index = 0; index < students.length; index++) {
+        if(students[index].email == emailFromLoginPage) {
+            var headHtml = '<h1 class="schoolHead">Welcome Back ' + students[index].firstName + ' ' + students[index].lastName + '!</h1>'
+
+            document.getElementById("studentHead").insertAdjacentHTML("beforeend", headHtml);
+        }
+
+    }
+}
+
 function getStudents(url) {
     // console.log("inside getStudents")
     //make initial api call to get Student list
@@ -13,6 +28,7 @@ function getStudents(url) {
 
         if (this.readyState == 4 && this.status == 200) {
             renderStudents1(this.responseText);
+            displayStudent(this.responseText);
         }
     };
     xhttpList.open("GET", url, true);
@@ -30,15 +46,12 @@ function renderStudents1(data){
 
     for(let index = 0; index < students.length; index++) {
         if(students[index].email == emailFromLoginPage) {
-            var tableHtml = ''
+            var tableHtml = '<tr>'
                 + '<td>' + students[index].studentId + '</td>'
                 + '<td>' + students[index].firstName + '</td>'
                 + '<td>' + students[index].lastName +'</td>'
                 + '<td>' + students[index].email + '</td>'
                 + '<td> <button data-toggle="modal" data-target="#' + purpose + students[index].studentId + '" class="btn btn-secondary" id="coursesTable">Courses</button></td>'
-                + '<td><br>'
-                + '</div>'
-                + '</td>'
                 + '</tr>';
 
             document.getElementById("studentTable").insertAdjacentHTML("beforeend", tableHtml);
@@ -124,7 +137,7 @@ function renderCourses(purpose, id) {
     console.log(studentCourses);
     console.log(regIds);
 
-    var modalTable = ' <div class="modal fade" id="' + purpose + id + '"> '
+    var modalTable = ' <div class="modal fadeIn" id="' + purpose + id + '"> '
         + ' <div class="modal-dialog modal-xl"> '
         + ' <div class="modal-content"> '
 
