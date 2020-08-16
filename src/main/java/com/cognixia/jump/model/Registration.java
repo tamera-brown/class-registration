@@ -17,9 +17,7 @@ public class Registration implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long registration_id;
-	@NotBlank
 	private Integer course_id;
-	@NotBlank
 	private Integer studentId;
 	@NotNull
 	private boolean isDropped;
