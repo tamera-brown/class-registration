@@ -1,10 +1,10 @@
 function initialize() {
-
+    // console.log("in initialzie")
     getStudents("/studentApi/allStudents");
 
 }
 function getStudents(url) {
-
+    // console.log("inside getStudents")
     //make initial api call to get Student list
     var xhttpList = new XMLHttpRequest();
 
@@ -12,7 +12,7 @@ function getStudents(url) {
     xhttpList.onreadystatechange = function () {
 
         if (this.readyState == 4 && this.status == 200) {
-            getStudents(this.responseText);
+            renderStudents1(this.responseText);
         }
     };
     xhttpList.open("GET", url, true);
@@ -21,26 +21,29 @@ function getStudents(url) {
 
 
 }
-function getStudents(data){
+function renderStudents1(data){
+    // console.log("did i get here");
     var students = JSON.parse(data);
-    var emailFromLoginPage = document.getElementById("login").value;
-    var purpose = StudentProfile
+    var emailFromLoginPage = sessionStorage.getItem("studentEmail");
+    console.log("here is " + emailFromLoginPage);
+    var purpose = "StudentProfile";
 
     for(let index = 0; index < students.length; index++) {
         if(students[index].email == emailFromLoginPage) {
-             document.getElementById("profileTitle").textContent=`Welcome ${students[index].firstName} ${students[index].lastName}`;
+
+            document.getElementById("profileTitle").textContent=`Welcome ${students[index].firstName} ${students[index].lastName}`;
             var tableHtml = ''
                 + '<td>' + students[index].studentId + '</td>'
-                + '<td>' + json[index].firstName + '</td>'
-                + '<td>' + json[index].lastName +'</td>'
-                + '<td>' + json[index].email + '</td>'
-                + '<td> <button data-toggle="modal" data-target="#' + purpose + students[index].studentId + '" class="btn btn-secondary">Courses</button></td>'
+                + '<td>' + students[index].firstName + '</td>'
+                + '<td>' + students[index].lastName +'</td>'
+                + '<td>' + students[index].email + '</td>'
+                + '<td> <button data-toggle="modal" data-target="#' + purpose + students[index].studentId + '" class="btn btn-secondary" id="coursesTable">Courses</button></td>'
                 + '<td><br>'
                 + '</div>'
                 + '</td>'
                 + '</tr>';
 
-            document.getElementById("regTable").insertAdjacentHTML("beforeend", tableHtml);
+            document.getElementById("studentTable").insertAdjacentHTML("beforeend", tableHtml);
             renderCourses(purpose, students[index].studentId);
         }
 
@@ -100,11 +103,13 @@ function renderCourses(purpose, id) {
     var regList = JSON.parse(pregList);
     var courses = JSON.parse(pcourses);
     var studentCourses = [];
+    var regIds = [];
 
     // find all the courses id from the registration list by matching the student id
     for( let index = 0; index < regList.length; index++) {
         if(regList[index].studentId == id) {
             studentCourses.push(regList[index].course_id);
+            regIds.push(regList[index].registration_id);
         }
     }
 
@@ -116,7 +121,12 @@ function renderCourses(purpose, id) {
         }
     }
 
-    var modalTable = ' <div class="modal fade" id="' + modalPurpose + id + '"> '
+    console.log(courses);
+    console.log(regList);
+    console.log(studentCourses);
+    console.log(regIds);
+
+    var modalTable = ' <div class="modal fade" id="' + purpose + id + '"> '
         + ' <div class="modal-dialog modal-xl"> '
         + ' <div class="modal-content"> '
 
@@ -127,20 +137,19 @@ function renderCourses(purpose, id) {
         + '<div class="modal-body">'
 
         + '<div class="container">'
-        + '<h2> Stats </h2>'
+        + '<h2> Courses </h2>'
         + '<table class="table table-dark">'
-        + '<thead>'
+        + '<thead class="headers">'
         + '<tr>'
         + '<th>Courses Id</th>'
         + '<th>Courses Title</th>'
         + '<th>Credit Hours</th>'
         + '<th>Department</th>'
+        + '<th>Drop Course</th>'
         + '</tr>'
         + '</thead>'
-        + '<tbody>'
-        + '<tr>'
-        + tableEntries(studentCourses)
-        + '</tr>'
+        + '<tbody class="tableBody">'
+        + tableEntries(studentCourses, regIds)
         + '</tbody>'
         + '</table>'
         + '</div>'
@@ -156,17 +165,50 @@ function renderCourses(purpose, id) {
         + '</div>';
 
 
-
+    document.getElementById("coursesTable").insertAdjacentHTML("beforeend", modalTable);
 
 }
 
-function tableEntries(courses) {
+function tableEntries(courses, regIds) {
     var entries;
+    // console.log(courses);
     for(let index = 0; index < courses.length; index++) {
-        entries += '<td>' + courses[index].course_id + '</td>'
+        entries += '<tr id="' + courses[index].course_id + '">'
+                 +'<td>' + courses[index].course_id + '</td>'
                  + '<td>' + courses[index].course_Name + '</td>'
                  + '<td>' + courses[index].credit + '</td>'
-                 + '<td>' + courses[index].department + '</td>';
+                 + '<td>' + courses[index].department + '</td>'
+                 + '<td><button type="button" onclick="deleteCourseFromRegistrationList(' + courses[index].course_id + ',' + regIds[index] + ')" class="btn btn-danger" >Drop</button></td>'
+                 + '</tr>';
     }
     return entries;
+}
+
+function deleteCourseFromRegistrationList(courseId, registrationId) {
+    console.log("courseId: " + courseId);
+    console.log("regId: " + registrationId);
+
+    var link = "/regApi/delete/registration/" + registrationId;
+
+    var ok = confirm("Are you sure you want to delete?\nPress 'OK' to confirm, or 'cancel' to cancel");
+
+    if(ok == true) {
+        var xhttp = new XMLHttpRequest();
+        xhttp.open("DELETE", link, true);
+
+        xhttp.onreadystatechange = function () {
+            if(this.readyState == 4 && this.status == 200) {
+                var removeEntry = document.getElementById(courseId);
+                removeEntry.parentNode.removeChild(removeEntry);
+                console.log("Removed entry from table");
+
+
+            }
+        };
+
+        xhttp.send(null);
+    }
+
+
+
 }
