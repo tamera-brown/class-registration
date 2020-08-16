@@ -14,7 +14,7 @@
         <link rel="icon" type="image/gif" href="./images/star.png">
         <title>Cognixia Jump University</title>
     </head>
-    <nav class="navbar navbar-expand-md nav navbar-dark fixed-top">
+    <nav class="navbar navbar-expand-md nav navbar-dark">
         
         <a class="navbar-brand" href="student.html"><img src="./images/star.png" style="width:35px;height:35px;"></a>
       
@@ -27,9 +27,11 @@
             <li class="nav-item">
               <a class="nav-link" href="student.html">Profile</a>
             </li>
-           
             <li class="nav-item">
               <a class="nav-link" href="registration.html">Register</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="index.html" onclick="logout()">Logout</a>
             </li>
           </ul>
         </div> 
@@ -37,12 +39,11 @@
         <h3 class="schoolHead">Cognixia Jump University</h3>
     </nav>
     <body class="homeBody" onload="initialize()">
-     
+      <br><br>
       <div class="container">
-        <br><br>
-        <h2 class="schoolHead">Courses</h2>           
-        <table class="table table-striped">
-          <thead class="headers">
+        <h2 class="schoolHead fadeIn first">Courses</h2>           
+        <table class="table table-striped fadeIn second">
+          <thead class="headers fadeIn third">
             <tr>
               <th>Course ID</th>
               <th>Course Title</th>
@@ -51,9 +52,10 @@
               <th>Enrollment Status</th>
             </tr>
           </thead>
-          <tbody class="tableBody" id="regTable"></tbody>
-        </table>
-  
+          <tbody class="tableBody fadeIn fourth" id="regTable" ></tbody>
+           </table>
+      </div>
+
     </body>
     <footer>
         <p class="footerText2">Copyright © 2020 Cognixia Jump University. All Rights Reserved</p>
