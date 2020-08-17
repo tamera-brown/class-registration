@@ -171,7 +171,6 @@ function renderCourses(purpose, id) {
 
         + '</div>'
         + '</div>'
-        + '</div>'
         + '</div>';
 
 
