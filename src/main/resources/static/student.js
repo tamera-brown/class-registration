@@ -147,8 +147,8 @@ function renderCourses(purpose, id) {
         + '<div class="modal-body">'
 
         + '<div class="container">'
-        + '<h2> Courses </h2>'
-        + '<table class="table table-dark">'
+        + '<h2 class="schoolHead">Courses</h2>'
+        + '<table class="table">'
         + '<thead class="headers">'
         + '<tr>'
         + '<th>Courses Id</th>'
@@ -174,7 +174,7 @@ function renderCourses(purpose, id) {
         + '</div>';
 
 
-    document.getElementById("coursesTable").insertAdjacentHTML("beforeend", modalTable);
+    document.getElementById("modals").insertAdjacentHTML("beforeend", modalTable);
 
 }
 
