@@ -1,8 +1,5 @@
 function initialize() {
-    // This render Modal call create our button and modal for creating a student at page onload.
-    //renderModal("createSneaker", "modals");
-    // Our get students function also does our rendering of all our cards, by calling the renderStudent() function.
-   // getStudents("/studentApi/allStudents");
+   
     isStudentValid();
 }
 
@@ -89,6 +86,7 @@ function getStudents() {
 //     }
 // }
 
+
 function isStudentValid() {
     var students_input;
     var students;
@@ -116,12 +114,10 @@ function isStudentValid() {
         sessionStorage.setItem("studentEmail", emailFromLogin);
         alert("Login Successful");
         window.location.href = "./student.html";
-        var studentName ='<h1 class="schoolHead" id="profileTitle">Welcome Back,'+ firstName + ' ' + lastName +'</h1>';
-        JSON.stringify(studentName);
-        document.getElementById("profileTitle").insertAdjacentHTML("beforeend", studentName);
+        
     } else {
         alert("Login failed");
-        window.location.href = "./login.html";
+        
     }
 
 }

@@ -25,26 +25,6 @@ function initialize() {
 
 
 }
-// function getReg(url) {
-//
-//     //make initial api call to get Registration list
-//     var xhttpList = new XMLHttpRequest();
-//
-//     // Read JSON - and put in storage
-//     xhttpList.onreadystatechange = function () {
-//
-//         if (this.readyState == 4 && this.status == 200) {
-//             createReg(this.responseText);
-//
-//
-//         }
-//     };
-//     xhttpList.open("GET", url, true);
-//     xhttpList.send();
-//     console.log("Registration List stored");
-//
-//
-//  }
 
  function getOneCourse(id) {
    var url = "/courseApi/courses/" + id;
@@ -72,7 +52,7 @@ function renderCourses(data) {
 
    for(var i = 0; i < courseList.length; i++){
 
-       var tableHtml = ''
+       var tableHtml = '<tr>'
        + '<td>' + courseList[i].course_id + '</td>'
        + '<td>' + courseList[i].course_Name + '</td>'
        + '<td>' + courseList[i].credit +'</td>'
@@ -118,9 +98,8 @@ function renderCourses(data) {
         if (ok == true) {
 
             alert("Successfully Enrolled!");
-            document.getElementById("Enroll").setAttribute("disabled", true);
-            //TODO wrong link, need add on the url
-            // getReg("/regApi/registration/");
+            
+            
             registerStudent(studentId, courseId);
         }
     } else {
@@ -130,39 +109,7 @@ function renderCourses(data) {
     }
  }
 
-//  function createReg(data) {
-//
-//     var json=JSON.parse(data);
-//
-//     for( let index = 0; index < json.length; index++) {
-//
-//         let courseID=json[index].course_id;
-//         let studentID=json[index].studentId;
-//         let Dropped=false;
-//
-//         var sendData = {
-//
-//             "course_id": courseID,
-//             "is_dropped": Dropped,
-//             "student_id": studentID,
-//
-//         }
-//
-//
-//     }
-//     console.log(sendData);
-//
-//         var xhttp = new XMLHttpRequest();
-//         xhttp.open("POST", "/regApi/add/registration/", true);
-//         xhttp.setRequestHeader('Content-Type', 'application/json');
-//         xhttp.onreadystatechange = function () {
-//             if (this.readyState == 4 && this.status == 200) {
-//                 console.log("Registration created!");
-//             }
-//         };
-//
-//         xhttp.send(sendData);
-// }
+
 
 function getStudentsList() {
     link = "/studentApi/allStudents";

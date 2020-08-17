@@ -79,4 +79,3 @@ public class Registration implements Serializable {
 				'}';
 	}
 }
-
