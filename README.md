@@ -6,4 +6,4 @@ Used AJAX for cusomming the APIs
 
 Run the Spring Boot Application first, then open browser on http:://localhost:8080
 
-Website deployed onn Heroku: https://aqueous-citadel-15754.herokuapp.com/
+Website deployed onn Heroku
